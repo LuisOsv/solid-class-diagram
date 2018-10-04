@@ -17,9 +17,9 @@ import java.awt.geom.Point2D;
 import javax.swing.JPanel;
 import javax.swing.TransferHandler;
 
-public class UmlRelationship extends JPanel implements DropTargetListener {
+public class UmlObjectRelationship extends JPanel implements DropTargetListener {
 	DropTarget dt;
-	public UmlRelationship() {
+	public UmlObjectRelationship() {
 		this.setLayout(null);
 		
 		

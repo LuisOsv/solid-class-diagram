@@ -20,7 +20,7 @@ public class Main extends JFrame {
 	     
 	     
 	     
-	     UmlRelationship umlPanel = new UmlRelationship();
+	     UmlObjectRelationship umlPanel = new UmlObjectRelationship();
 	     UmlObject object1 = new UmlObject();
 	     UmlObject object2 = new UmlObject();
 	     UmlObject object3 = new UmlObject();
