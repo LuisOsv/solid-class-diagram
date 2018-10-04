@@ -33,6 +33,20 @@ public class UmlObject extends JPanel {
        // this.repaint();
 	}
 	
+	public UmlObject(int positionX, int positionY) {
+		relationShips =  new ArrayList<Component>();
+        Rectangle r = new Rectangle(positionX, positionY, 125, 40);
+        
+        //this.setLayout(new FlowLayout());
+		className = new JTextField("Enter the name");
+			
+        
+        this.setBounds(r);
+        this.setBorder(BorderFactory.createEtchedBorder());
+        this.add(className);
+       // this.repaint();
+	}
+	
 	public void relateUmlObject(UmlObject childUmlObject){
 		relationShips.add(childUmlObject);
 	}

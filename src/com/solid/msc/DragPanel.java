@@ -7,13 +7,14 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.event.MouseInputAdapter;
 
+
 public class DragPanel extends MouseInputAdapter {
-	UmlRelationship panel;
+	UmlObjectRelationship panel;
     Point offset = new Point();
     int selectedIndex;
     boolean dragging = false;
   
-    DragPanel(UmlRelationship umlRelationship) {
+    DragPanel(UmlObjectRelationship umlRelationship) {
         this.panel = umlRelationship;
     }
   

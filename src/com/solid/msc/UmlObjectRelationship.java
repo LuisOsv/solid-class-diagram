@@ -5,20 +5,32 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.RenderingHints;
+import java.awt.dnd.DnDConstants;
+import java.awt.dnd.DropTarget;
+import java.awt.dnd.DropTargetDragEvent;
+import java.awt.dnd.DropTargetDropEvent;
+import java.awt.dnd.DropTargetEvent;
+import java.awt.dnd.DropTargetListener;
 import java.awt.geom.Line2D;
 import java.awt.geom.Point2D;
 
 import javax.swing.JPanel;
+import javax.swing.TransferHandler;
 
-public class UmlRelationship extends JPanel {
-	
-	public UmlRelationship() {
+public class UmlObjectRelationship extends JPanel implements DropTargetListener {
+	DropTarget dt;
+	public UmlObjectRelationship() {
 		this.setLayout(null);
+		
+		
 		DragPanel panelMover = new DragPanel(this);
         this.addMouseListener(panelMover);
         this.addMouseMotionListener(panelMover);
         //this.repaint();
 		//this.setBounds(0, 0, 1000, 1000);
+        dt = new DropTarget(new UmlObject(), this);
+        
+        new DropTarget(this, this);
 	}
 
 	
@@ -65,4 +77,44 @@ public class UmlRelationship extends JPanel {
     public void addUmlObject(Component umlObject) {
     	this.add(umlObject);
     }
+
+
+	@Override
+	public void dragEnter(DropTargetDragEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void dragExit(DropTargetEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void dragOver(DropTargetDragEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void drop(DropTargetDropEvent arg0) {
+		UmlObject object = new UmlObject((int)arg0.getLocation().getX(),(int)arg0.getLocation().getY());
+		addUmlObject(object);
+		System.out.println("Detecto drop");
+		object.setVisible(false);
+		object.setVisible(true);
+		repaint();
+		
+	}
+
+
+	@Override
+	public void dropActionChanged(DropTargetDragEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
 }
