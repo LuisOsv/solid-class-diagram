@@ -11,8 +11,8 @@ public class SelectableUMLRelationships extends JPanel {
     }
 
     private void addEntities() {
-        MenuBuilderUMLRelationships association = new MenuBuilderUMLRelationships("Association");
-        MenuBuilderUMLRelationships dependency = new MenuBuilderUMLRelationships("Dependency");
+        MenuBuilderUMLRelationships association = new MenuBuilderUMLRelationships(RelationshipType.ASSOCIATION);
+        MenuBuilderUMLRelationships dependency = new MenuBuilderUMLRelationships(RelationshipType.DEPENDENCY);
         ButtonGroup group = new ButtonGroup();
         group.add(association);
         group.add(dependency);

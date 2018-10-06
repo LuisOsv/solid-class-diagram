@@ -12,9 +12,11 @@ import java.awt.dnd.DragSource;
 
 public class MenuBuilderUMLRelationships extends JToggleButton {
 
-    public MenuBuilderUMLRelationships(String menuName) {
-        super(menuName);
+    public MenuBuilderUMLRelationships(RelationshipType relationshipType) {
+        super(relationshipType.toString());
         this.setMaximumSize(new Dimension(100, 50));
         this.setAlignmentX(Component.LEFT_ALIGNMENT);
+        RelationshipTypesEventListener relationshipTypesEventListener = new RelationshipTypesEventListener(relationshipType);
+        this.addMouseListener(relationshipTypesEventListener);
     }
 }

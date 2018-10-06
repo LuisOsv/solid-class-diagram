@@ -35,11 +35,17 @@ public abstract class UmlObject extends JPanel {
         if (point1 != null && point2 != null) {
             Stroke defaultStroke;
             defaultStroke = graphics2D.getStroke();
-
+            Stroke stroke2 = null;
             float[] dashingPattern2 = {10f, 4f};
-            Stroke stroke2 = new BasicStroke(4f, BasicStroke.CAP_BUTT,
-                    BasicStroke.JOIN_MITER, 1.0f, dashingPattern2, 0.0f);
-
+            if(RelationHelper.getInstance().getRelationshipType()==RelationshipType.DEPENDENCY){
+                stroke2 = new BasicStroke(4f, BasicStroke.CAP_BUTT,
+                        BasicStroke.JOIN_MITER, 1.0f, null, 0.0f);
+            } else{
+                if(RelationHelper.getInstance().getRelationshipType()==RelationshipType.ASSOCIATION){
+                    stroke2 = new BasicStroke(4f, BasicStroke.CAP_BUTT,
+                            BasicStroke.JOIN_MITER, 1.0f, dashingPattern2, 0.0f);
+                }
+            }
             graphics2D.setStroke(stroke2);
             graphics2D.draw(new Line2D.Double(point1, point2));
             graphics2D.setStroke(defaultStroke);
