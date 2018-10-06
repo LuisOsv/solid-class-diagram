@@ -2,13 +2,15 @@ package com.solid.msc;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.awt.geom.Line2D;
 import java.util.ArrayList;
 
 
 public abstract class UmlObject extends JPanel {
     private ArrayList<Component> relationShips;
-    private JTextField className;
+    private JTextField umlFieldNameComponent;
 
     public ArrayList<Component> getRelationShips() {
         return relationShips;
@@ -24,11 +26,31 @@ public abstract class UmlObject extends JPanel {
     }
 
     private void initializePanel(Rectangle rectangle) {
+        String placeholder = "Enter the name";
         relationShips = new ArrayList<Component>();
-        className = new JTextField("Enter the name");
+        umlFieldNameComponent = new JTextField(placeholder);
         this.setBounds(rectangle);
         this.setBorder(BorderFactory.createEtchedBorder());
-        this.add(className);
+        umlFieldNameComponent.setForeground(Color.GRAY);
+        umlFieldNameComponent.addFocusListener(new FocusListener() {
+
+            @Override
+            public void focusGained(FocusEvent e) {
+                if (umlFieldNameComponent.getText().equals(placeholder)) {
+                    umlFieldNameComponent.setText("");
+                    umlFieldNameComponent.setForeground(Color.BLACK);
+                }
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                if (umlFieldNameComponent.getText().isEmpty()) {
+                    umlFieldNameComponent.setForeground(Color.GRAY);
+                    umlFieldNameComponent.setText(placeholder);
+                }
+            }
+        });
+        this.add(umlFieldNameComponent);
     }
 
     protected void drawRelation(Graphics2D graphics2D, Point point1, Point point2) {
