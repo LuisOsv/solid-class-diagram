@@ -6,32 +6,45 @@ import java.awt.geom.Line2D;
 import java.util.ArrayList;
 
 
-public abstract class UmlObject extends JPanel {
-    private ArrayList<Component> relationShips;
-    private JTextField className;
+public abstract class UmlObject implements DrawableObject {
+    private ArrayList<DrawableObject> relationShips;
+    private String name;
+    private SquareFigure figure;
 
-    public ArrayList<Component> getRelationShips() {
+    public UmlObject(int positionX, int positionY) {
+        figure = new SquareFigure(getName());
+        figure.setBounds(new Rectangle(positionX, positionY, 125, 40));
+        relationShips = new ArrayList<DrawableObject>();
+    }
+
+    @Override
+    public ArrayList<DrawableObject> getRelationShips() {
         return relationShips;
     }
 
-    public UmlObject(int positionX, int positionY) {
-        Rectangle rectangle = new Rectangle(positionX, positionY, 125, 40);
-        initializePanel(rectangle);
-    }
-
-    public void relateUmlObject(UmlObject childUmlObject) {
+    @Override
+    public void addRelation(DrawableObject childUmlObject) {
         relationShips.add(childUmlObject);
     }
 
-    private void initializePanel(Rectangle rectangle) {
-        relationShips = new ArrayList<Component>();
-        className = new JTextField("Enter the name");
-        this.setBounds(rectangle);
-        this.setBorder(BorderFactory.createEtchedBorder());
-        this.add(className);
+    @Override
+    public String getName() {
+        return this.name;
     }
 
-    protected void drawRelation(Graphics2D graphics2D, Point point1, Point point2) {
+    @Override
+    public void setName(String name) {
+        this.name = name;
+        this.figure.setName(name);
+    }
+
+    @Override
+    public JPanel getFigure() {
+        return this.figure;
+    }
+
+    @Override
+    public void drawRelation(Graphics2D graphics2D, Point point1, Point point2) {
         if (point1 != null && point2 != null) {
             Stroke defaultStroke;
             defaultStroke = graphics2D.getStroke();
@@ -52,21 +65,18 @@ public abstract class UmlObject extends JPanel {
         }
     }
 
-    protected void drawNewRelation(Graphics2D graphics2D) {
-        Point originPoint = getCenter(RelationHelper.getInstance().getOriginUmlObject().getBounds());
+    @Override
+    public void drawNewRelation(Graphics2D graphics2D) {
+        Point originPoint = RelationHelper.getInstance().getOriginUmlObject().getCenter();
         Point targetPoint = RelationHelper.getInstance().getTargetTemporaryPoint();
         drawRelation(graphics2D, originPoint, targetPoint);
     }
 
-    public Point getCenter(Component component) {
-        Rectangle rectangle = component.getBounds();
-        return getCenter(rectangle);
-    }
-
-    private Point getCenter(Rectangle rectangle) {
+    @Override
+    public Point getCenter() {
         Point point = new Point();
-        point.x = (int) rectangle.getCenterX();
-        point.y = (int) rectangle.getCenterY();
+        point.x = (int) getFigure().getBounds().getCenterX();
+        point.y = (int) getFigure().getBounds().getCenterY();
         return point;
     }
 }

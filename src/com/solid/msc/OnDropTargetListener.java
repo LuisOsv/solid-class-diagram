@@ -37,10 +37,10 @@ public class OnDropTargetListener implements DropTargetListener {
 
     @Override
     public void drop(DropTargetDropEvent dropTargetDropEvent) {
-        UmlObject object = new UmlClass((int) dropTargetDropEvent.getLocation().getX(), (int) dropTargetDropEvent.getLocation().getY());
+        DrawableObject object = new UmlClass((int) dropTargetDropEvent.getLocation().getX(), (int) dropTargetDropEvent.getLocation().getY());
         this.umlBoard.addUmlObject(object);
-        object.setVisible(false);
-        object.setVisible(true);
+        object.getFigure().setVisible(false);
+        object.getFigure().setVisible(true);
         this.umlBoard.repaint();
     }
 }

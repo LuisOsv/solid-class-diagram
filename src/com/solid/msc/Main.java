@@ -1,6 +1,7 @@
 package com.solid.msc;
 
 import com.solid.msc.UmlEntities.UmlClass;
+import com.solid.msc.UmlEntities.UmlInterface;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,12 +17,12 @@ public class Main extends JFrame {
         this.getContentPane().setLayout(new BorderLayout());
 
 
-        UmlBoard umlPanel = new UmlBoard();
+        UmlBoard umlBoard = new UmlBoard();
         UmlObject object1 = new UmlClass(50, 50);
         UmlObject object2 = new UmlClass(100, 200);
 
-        umlPanel.addUmlObject(object1);
-        umlPanel.addUmlObject(object2);
+        umlBoard.addUmlObject(object1);
+        umlBoard.addUmlObject(object2);
 
         JPanel menus = new JPanel();
         BoxLayout layout1 = new BoxLayout(menus, BoxLayout.Y_AXIS);
@@ -39,7 +40,7 @@ public class Main extends JFrame {
         this.getContentPane().add(menus, BorderLayout.WEST);
 
 
-        this.getContentPane().add(umlPanel, BorderLayout.CENTER);
+        this.getContentPane().add(umlBoard, BorderLayout.CENTER);
 
         this.setVisible(true);
     }
