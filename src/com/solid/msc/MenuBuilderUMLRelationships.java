@@ -10,9 +10,9 @@ import java.awt.dnd.DragGestureEvent;
 import java.awt.dnd.DragGestureListener;
 import java.awt.dnd.DragSource;
 
-public class OptionMenuSelectable extends JToggleButton {
+public class MenuBuilderUMLRelationships extends JToggleButton {
 
-    public OptionMenuSelectable(String menuName) {
+    public MenuBuilderUMLRelationships(String menuName) {
         super(menuName);
         this.setMaximumSize(new Dimension(100, 50));
         this.setAlignmentX(Component.LEFT_ALIGNMENT);

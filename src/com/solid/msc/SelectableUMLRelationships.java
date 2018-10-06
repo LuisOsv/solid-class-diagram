@@ -3,16 +3,16 @@ package com.solid.msc;
 import javax.swing.*;
 
 
-public class SelectableRelationships extends JPanel {
+public class SelectableUMLRelationships extends JPanel {
 
-    public SelectableRelationships() {
+    public SelectableUMLRelationships() {
         initializePanel();
         addEntities();
     }
 
     private void addEntities() {
-        OptionMenuSelectable association = new OptionMenuSelectable("Association");
-        OptionMenuSelectable dependency = new OptionMenuSelectable("Dependency");
+        MenuBuilderUMLRelationships association = new MenuBuilderUMLRelationships("Association");
+        MenuBuilderUMLRelationships dependency = new MenuBuilderUMLRelationships("Dependency");
         ButtonGroup group = new ButtonGroup();
         group.add(association);
         group.add(dependency);

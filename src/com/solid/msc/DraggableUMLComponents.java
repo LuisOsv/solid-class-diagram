@@ -4,16 +4,16 @@ import javax.swing.*;
 import java.awt.*;
 
 
-public class DraggableComponents extends JPanel {
+public class DraggableUMLComponents extends JPanel {
 
-    public DraggableComponents() {
+    public DraggableUMLComponents() {
         initializePanel();
         addEntities();
     }
 
     private void addEntities() {
-        this.add(new OptionMenuDraggable("Class", Color.DARK_GRAY));
-        this.add(new OptionMenuDraggable("<<Interface>>", Color.lightGray));
+        this.add(new MenuBuilderUMLComponents("Class", Color.DARK_GRAY));
+        this.add(new MenuBuilderUMLComponents("<<Interface>>", Color.lightGray));
     }
 
     private void initializePanel() {

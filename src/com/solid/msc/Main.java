@@ -26,15 +26,15 @@ public class Main extends JFrame {
         JPanel menus = new JPanel();
         BoxLayout layout1 = new BoxLayout(menus, BoxLayout.Y_AXIS);
         menus.setLayout(layout1);
-        DraggableComponents draggableComponents = new DraggableComponents();
-        SelectableRelationships selectableRelationships = new SelectableRelationships();
+        DraggableUMLComponents draggableUMLComponents = new DraggableUMLComponents();
+        SelectableUMLRelationships selectableUMLRelationships = new SelectableUMLRelationships();
 
-        draggableComponents.setAlignmentX(Component.LEFT_ALIGNMENT);
-        selectableRelationships.setAlignmentX(Component.LEFT_ALIGNMENT);
+        draggableUMLComponents.setAlignmentX(Component.LEFT_ALIGNMENT);
+        selectableUMLRelationships.setAlignmentX(Component.LEFT_ALIGNMENT);
 
 
-        menus.add(draggableComponents);
-        menus.add(selectableRelationships);
+        menus.add(draggableUMLComponents);
+        menus.add(selectableUMLRelationships);
 
         this.getContentPane().add(menus, BorderLayout.WEST);
 

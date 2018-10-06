@@ -10,14 +10,14 @@ import java.awt.dnd.DragGestureEvent;
 import java.awt.dnd.DragGestureListener;
 import java.awt.dnd.DragSource;
 
-public class OptionMenuDraggable extends JPanel implements DragGestureListener {
+public class MenuBuilderUMLComponents extends JPanel implements DragGestureListener {
     DragSource dragSource;
 
-    public OptionMenuDraggable(String menuName, Color color) {
+    public MenuBuilderUMLComponents(String menuName, Color borderColor) {
         this.add(new JLabel(menuName));
         dragSource = new DragSource();
         dragSource.createDefaultDragGestureRecognizer(this, DnDConstants.ACTION_COPY_OR_MOVE, this);
-        Border border = BorderFactory.createLineBorder(color, 3);
+        Border border = BorderFactory.createLineBorder(borderColor, 3);
         this.setBorder(border);
         this.setMaximumSize(new Dimension(100, 50));
     }
