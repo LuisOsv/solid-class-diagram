@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public abstract class UmlObject extends JPanel {
     private ArrayList<Component> relationShips;
-    private JTextField umlFieldNameComponent;
+    private JTextField fieldNameComponent;
 
     public ArrayList<Component> getRelationShips() {
         return relationShips;
@@ -28,29 +28,30 @@ public abstract class UmlObject extends JPanel {
     private void initializePanel(Rectangle rectangle) {
         String placeholder = "Enter the name";
         relationShips = new ArrayList<Component>();
-        umlFieldNameComponent = new JTextField(placeholder);
+        fieldNameComponent = new JTextField(placeholder);
         this.setBounds(rectangle);
-        this.setBorder(BorderFactory.createEtchedBorder());
-        umlFieldNameComponent.setForeground(Color.GRAY);
-        umlFieldNameComponent.addFocusListener(new FocusListener() {
+        this.setBorder(BorderFactory.createLineBorder(new Color(74,31, 0),1));
+        this.setBackground(new Color(255,254, 186));
+        fieldNameComponent.setForeground(Color.GRAY);
+        fieldNameComponent.addFocusListener(new FocusListener() {
 
             @Override
             public void focusGained(FocusEvent e) {
-                if (umlFieldNameComponent.getText().equals(placeholder)) {
-                    umlFieldNameComponent.setText("");
-                    umlFieldNameComponent.setForeground(Color.BLACK);
+                if (fieldNameComponent.getText().equals(placeholder)) {
+                    fieldNameComponent.setText("");
+                    fieldNameComponent.setForeground(Color.BLACK);
                 }
             }
 
             @Override
             public void focusLost(FocusEvent e) {
-                if (umlFieldNameComponent.getText().isEmpty()) {
-                    umlFieldNameComponent.setForeground(Color.GRAY);
-                    umlFieldNameComponent.setText(placeholder);
+                if (fieldNameComponent.getText().isEmpty()) {
+                    fieldNameComponent.setForeground(Color.GRAY);
+                    fieldNameComponent.setText(placeholder);
                 }
             }
         });
-        this.add(umlFieldNameComponent);
+        this.add(fieldNameComponent);
     }
 
     protected void drawRelation(Graphics2D graphics2D, Point point1, Point point2) {
