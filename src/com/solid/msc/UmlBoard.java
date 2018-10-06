@@ -6,7 +6,7 @@ import java.awt.dnd.DropTarget;
 import java.util.ArrayList;
 
 public class UmlBoard extends JPanel {
-    ArrayList<DrawableObject> drawableObjects;
+    private ArrayList<DrawableObject> drawableObjects;
 
     public UmlBoard() {
         this.setLayout(null);
@@ -35,7 +35,7 @@ public class UmlBoard extends JPanel {
 
     private void drawNewRelation(Graphics2D graphics2D) {
         if (RelationHelper.getInstance().isAddingRelation()) {
-            RelationHelper.getInstance().getOriginUmlObject().drawNewRelation(graphics2D);
+            RelationHelper.getInstance().getOriginUmlObject().drawNewRelation(graphics2D, RelationHelper.getInstance().getRelationshipType());
         }
     }
 
@@ -48,9 +48,9 @@ public class UmlBoard extends JPanel {
         if (umlObject.getRelationShips().size() > 0) {
             Point point1 = umlObject.getCenter();
             for (int j = 0; j < umlObject.getRelationShips().size(); j++) {
-                UmlObject childUmlObject = (UmlObject) umlObject.getRelationShips().get(j);
+                UmlObject childUmlObject = (UmlObject) umlObject.getRelationShips().get(j).getTargetDrawableObject();
                 Point point2 = childUmlObject.getCenter();
-                umlObject.drawRelation(graphics2D, point1, point2);
+                umlObject.drawRelation(graphics2D, point1, point2, umlObject.getRelationShips().get(j).getRelationshipType());
             }
         }
     }

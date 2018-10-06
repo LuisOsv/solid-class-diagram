@@ -7,7 +7,7 @@ public class RelationHelper {
     private static RelationHelper relationHelper;
     private DrawableObject originUmlObject;
     private Point targetTemporaryPoint;
-    private  RelationshipType relationshipType;
+    private RelationshipType relationshipType;
 
     private void AddRelationHelper() {
 
@@ -25,8 +25,8 @@ public class RelationHelper {
         return originUmlObject != null;
     }
 
-    public void completeRelation(DrawableObject umlObject) {
-        this.originUmlObject.addRelation(umlObject);
+    public void completeRelation(DrawableObject umlObject, RelationshipType relationshipType) {
+        this.originUmlObject.addRelation(umlObject, relationshipType);
         RelationHelper.getInstance().clear();
     }
 
@@ -43,11 +43,11 @@ public class RelationHelper {
         this.targetTemporaryPoint = targetTemporaryPoint;
     }
 
-    public void setRelationshipType(RelationshipType relationshipType){
+    public void setRelationshipType(RelationshipType relationshipType) {
         this.relationshipType = relationshipType;
     }
 
-    public RelationshipType getRelationshipType(){
+    public RelationshipType getRelationshipType() {
         return relationshipType;
     }
 

@@ -28,7 +28,7 @@ public class MouseEventsListener extends MouseInputAdapter {
 
     private void handleEntityClickedEvent(DrawableObject umlObject) {
         if (RelationHelper.getInstance().isAddingRelation()) {
-            RelationHelper.getInstance().completeRelation(umlObject);
+            RelationHelper.getInstance().completeRelation(umlObject, RelationHelper.getInstance().getRelationshipType());
         } else {
             RelationHelper.getInstance().setOriginUmlObject(umlObject);
         }

@@ -6,9 +6,11 @@ import java.util.ArrayList;
 
 public interface DrawableObject {
 
-    void drawRelation(Graphics2D graphics2D, Point point1, Point point2);
+    void drawRelation(Graphics2D graphics2D, Point point1, Point point2, RelationshipType relationshipType);
 
-    void addRelation(DrawableObject relatedUmlObject);
+    void addRelation(DrawableObject relatedDrawableObject, RelationshipType relationshipType);
+
+    ArrayList<Relation> getRelationShips();
 
     String getName();
 
@@ -16,9 +18,8 @@ public interface DrawableObject {
 
     JPanel getFigure();
 
-    ArrayList<DrawableObject> getRelationShips();
 
-    void drawNewRelation(Graphics2D graphics2D);
+    void drawNewRelation(Graphics2D graphics2D, RelationshipType relationshipType);
 
     Point getCenter();
 
