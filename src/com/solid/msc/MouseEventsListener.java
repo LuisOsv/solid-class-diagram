@@ -19,7 +19,14 @@ public class MouseEventsListener extends MouseInputAdapter {
     @Override
     public void mouseClicked(MouseEvent mouseEvent) {
         super.mouseClicked(mouseEvent);
+
         UmlObject umlObject = (UmlObject) getEntityByPoint(mouseEvent.getPoint());
+        if (umlObject != null) {
+            handleEntityClockedEvent(umlObject);
+        }
+    }
+
+    private void handleEntityClockedEvent(UmlObject umlObject) {
         if (RelationHelper.getInstance().isAddingRelation()) {
             RelationHelper.getInstance().completeRelation(umlObject);
         } else {

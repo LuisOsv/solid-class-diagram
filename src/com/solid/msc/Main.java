@@ -23,8 +23,20 @@ public class Main extends JFrame {
         umlPanel.addUmlObject(object1);
         umlPanel.addUmlObject(object2);
 
-        MenuPanel menu = new MenuPanel();
-        this.getContentPane().add(menu, BorderLayout.WEST);
+        JPanel menus = new JPanel();
+        BoxLayout layout1 = new BoxLayout(menus, BoxLayout.Y_AXIS);
+        menus.setLayout(layout1);
+        DraggableOptions draggableOptions = new DraggableOptions();
+        SelectableOptions selectableOptions = new SelectableOptions();
+
+        draggableOptions.setAlignmentX(Component.LEFT_ALIGNMENT);
+        selectableOptions.setAlignmentX(Component.LEFT_ALIGNMENT);
+
+
+        menus.add(draggableOptions);
+        menus.add(selectableOptions);
+
+        this.getContentPane().add(menus, BorderLayout.WEST);
 
 
         this.getContentPane().add(umlPanel, BorderLayout.CENTER);
