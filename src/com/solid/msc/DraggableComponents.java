@@ -4,9 +4,9 @@ import javax.swing.*;
 import java.awt.*;
 
 
-public class DraggableOptions extends JPanel {
+public class DraggableComponents extends JPanel {
 
-    public DraggableOptions() {
+    public DraggableComponents() {
         initializePanel();
         addEntities();
     }

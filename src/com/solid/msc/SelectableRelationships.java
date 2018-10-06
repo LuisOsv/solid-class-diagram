@@ -3,9 +3,9 @@ package com.solid.msc;
 import javax.swing.*;
 
 
-public class SelectableOptions extends JPanel {
+public class SelectableRelationships extends JPanel {
 
-    public SelectableOptions() {
+    public SelectableRelationships() {
         initializePanel();
         addEntities();
     }
