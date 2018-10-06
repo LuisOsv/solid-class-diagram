@@ -11,7 +11,12 @@ public class UmlInterface extends UmlObject {
     }
 
     @Override
-    protected void drawRelation(Graphics2D graphics2D, Point point1, Point point2) {
+    public void drawRelation(Graphics2D graphics2D, Point point1, Point point2) {
         super.drawRelation(graphics2D, point1, point2);
+    }
+
+    @Override
+    public String getName() {
+        return "Interface";
     }
 }

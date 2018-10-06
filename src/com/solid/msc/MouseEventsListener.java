@@ -7,12 +7,12 @@ import java.awt.event.MouseEvent;
 
 
 public class MouseEventsListener extends MouseInputAdapter {
-    private JPanel panel;
+    private UmlBoard panel;
     private Point offset = new Point();
     private int selectedIndex;
     private boolean dragging = false;
 
-    public MouseEventsListener(JPanel umlRelationship) {
+    public MouseEventsListener(UmlBoard umlRelationship) {
         this.panel = umlRelationship;
     }
 
@@ -20,13 +20,13 @@ public class MouseEventsListener extends MouseInputAdapter {
     public void mouseClicked(MouseEvent mouseEvent) {
         super.mouseClicked(mouseEvent);
 
-        UmlObject umlObject = (UmlObject) getEntityByPoint(mouseEvent.getPoint());
+        DrawableObject umlObject = getEntityByPoint(mouseEvent.getPoint());
         if (umlObject != null) {
             handleEntityClickedEvent(umlObject);
         }
     }
 
-    private void handleEntityClickedEvent(UmlObject umlObject) {
+    private void handleEntityClickedEvent(DrawableObject umlObject) {
         if (RelationHelper.getInstance().isAddingRelation()) {
             RelationHelper.getInstance().completeRelation(umlObject);
         } else {
@@ -49,21 +49,20 @@ public class MouseEventsListener extends MouseInputAdapter {
         // This way of identifying the target JPanel should work as
         // long as the target is not focusable and does not contain
         // any components that consume MouseEvents, eg, JTextField.
-        Component component = getEntityByPoint(point);
+        DrawableObject component = getEntityByPoint(point);
         if (component != null) {
-            offset.x = point.x - component.getBounds().x;
-            offset.y = point.y - component.getBounds().y;
+            offset.x = point.x - component.getFigure().getBounds().x;
+            offset.y = point.y - component.getFigure().getBounds().y;
             dragging = true;
         }
     }
 
-    private Component getEntityByPoint(Point point) {
-        Component component = null;
-        Component[] components = panel.getComponents();
-        for (int j = 0; j < components.length; j++) {
-            Rectangle rectangle = components[j].getBounds();
+    private DrawableObject getEntityByPoint(Point point) {
+        DrawableObject component = null;
+        for (int j = 0; j < panel.getDrawableObjects().size(); j++) {
+            Rectangle rectangle = panel.getDrawableObjects().get(j).getFigure().getBounds();
             if (rectangle.contains(point)) {
-                component = components[j];
+                component = panel.getDrawableObjects().get(j);
             }
         }
         return component;
@@ -79,9 +78,9 @@ public class MouseEventsListener extends MouseInputAdapter {
         if (dragging) {
             int x = mouseEvent.getX() - offset.x;
             int y = mouseEvent.getY() - offset.y;
-            Component component = getEntityByPoint(mouseEvent.getPoint());
-            if (component != null) {
-                component.setLocation(x, y);
+            DrawableObject drawableObject = getEntityByPoint(mouseEvent.getPoint());
+            if (drawableObject != null) {
+                drawableObject.getFigure().setLocation(x, y);
                 panel.repaint();
             }
         }

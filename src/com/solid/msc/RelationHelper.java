@@ -5,18 +5,18 @@ import java.awt.*;
 public class RelationHelper {
 
     private static RelationHelper relationHelper;
-    private UmlObject originUmlObject;
+    private DrawableObject originUmlObject;
     private Point targetTemporaryPoint;
 
     private void AddRelationHelper() {
 
     }
 
-    public UmlObject getOriginUmlObject() {
+    public DrawableObject getOriginUmlObject() {
         return originUmlObject;
     }
 
-    public void setOriginUmlObject(UmlObject originUmlObject) {
+    public void setOriginUmlObject(DrawableObject originUmlObject) {
         this.originUmlObject = originUmlObject;
     }
 
@@ -24,8 +24,8 @@ public class RelationHelper {
         return originUmlObject != null;
     }
 
-    public void completeRelation(UmlObject umlObject) {
-        this.originUmlObject.relateUmlObject(umlObject);
+    public void completeRelation(DrawableObject umlObject) {
+        this.originUmlObject.addRelation(umlObject);
         RelationHelper.getInstance().clear();
     }
 

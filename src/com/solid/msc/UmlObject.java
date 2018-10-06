@@ -2,88 +2,64 @@ package com.solid.msc;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
 import java.awt.geom.Line2D;
 import java.util.ArrayList;
 
 
-public abstract class UmlObject extends JPanel {
-    private ArrayList<Component> relationShips;
-    private JTextField fieldNameComponent;
+public abstract class UmlObject implements DrawableObject {
+    private ArrayList<DrawableObject> relationShips;
+    private String name;
+    private SquareFigure figure;
 
-    public ArrayList<Component> getRelationShips() {
+    public UmlObject(int positionX, int positionY) {
+        figure = new SquareFigure(getName());
+        figure.setBounds(new Rectangle(positionX, positionY, 125, 40));
+        relationShips = new ArrayList<DrawableObject>();
+    }
+
+    @Override
+    public ArrayList<DrawableObject> getRelationShips() {
         return relationShips;
     }
 
-    public UmlObject(int positionX, int positionY) {
-        Rectangle rectangle = new Rectangle(positionX, positionY, 125, 40);
-        initializePanel(rectangle);
-    }
-
-    public void relateUmlObject(UmlObject childUmlObject) {
+    @Override
+    public void addRelation(DrawableObject childUmlObject) {
         relationShips.add(childUmlObject);
     }
 
-    private void initializePanel(Rectangle rectangle) {
-        String placeholder = "Enter the name";
-        relationShips = new ArrayList<Component>();
-        fieldNameComponent = new JTextField(placeholder);
-        this.setBounds(rectangle);
-        this.setBorder(BorderFactory.createLineBorder(new Color(74,31, 0),1));
-        this.setBackground(new Color(255,254, 186));
-        fieldNameComponent.setForeground(Color.GRAY);
-        fieldNameComponent.addFocusListener(new FocusListener() {
-
-            @Override
-            public void focusGained(FocusEvent e) {
-                if (fieldNameComponent.getText().equals(placeholder)) {
-                    fieldNameComponent.setText("");
-                    fieldNameComponent.setForeground(Color.BLACK);
-                }
-            }
-
-            @Override
-            public void focusLost(FocusEvent e) {
-                if (fieldNameComponent.getText().isEmpty()) {
-                    fieldNameComponent.setForeground(Color.GRAY);
-                    fieldNameComponent.setText(placeholder);
-                }
-            }
-        });
-        this.add(fieldNameComponent);
+    @Override
+    public String getName() {
+        return this.name;
     }
 
-    protected void drawRelation(Graphics2D graphics2D, Point point1, Point point2) {
-        if (point1 != null && point2 != null) {
-            Stroke defaultStroke;
-            defaultStroke = graphics2D.getStroke();
-
-            float[] dashingPattern2 = {10f, 4f};
-            Stroke stroke2 = new BasicStroke(4f, BasicStroke.CAP_BUTT,
-                    BasicStroke.JOIN_MITER, 1.0f, dashingPattern2, 0.0f);
-
-            graphics2D.setStroke(stroke2);
-            graphics2D.draw(new Line2D.Double(point1, point2));
-            graphics2D.setStroke(defaultStroke);
-        }
+    @Override
+    public void setName(String name) {
+        this.name = name;
+        this.figure.setName(name);
     }
 
-    protected void drawNewRelation(Graphics2D graphics2D) {
-        Point originPoint = getCenter(RelationHelper.getInstance().getOriginUmlObject().getBounds());
+    @Override
+    public JPanel getFigure() {
+        return this.figure;
+    }
+
+    @Override
+    public void drawRelation(Graphics2D graphics2D, Point point1, Point point2) {
+        graphics2D.draw(new Line2D.Double(point1, point2));
+    }
+
+    @Override
+    public void drawNewRelation(Graphics2D graphics2D) {
+        Point originPoint = RelationHelper.getInstance().getOriginUmlObject().getCenter();
         Point targetPoint = RelationHelper.getInstance().getTargetTemporaryPoint();
         drawRelation(graphics2D, originPoint, targetPoint);
     }
 
-    public Point getCenter(Component component) {
-        Rectangle rectangle = component.getBounds();
-        return getCenter(rectangle);
-    }
-
-    private Point getCenter(Rectangle rectangle) {
+    @Override
+    public Point getCenter() {
         Point point = new Point();
-        point.x = (int) rectangle.getCenterX();
-        point.y = (int) rectangle.getCenterY();
+        point.x = (int) getFigure().getBounds().getCenterX();
+        point.y = (int) getFigure().getBounds().getCenterY();
         return point;
     }
 }
