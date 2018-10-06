@@ -4,10 +4,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.dnd.DropTarget;
 
-public class UmlObjectRelationship extends JPanel {
+public class UmlBoard extends JPanel {
     DropTarget dt;
 
-    public UmlObjectRelationship() {
+    public UmlBoard() {
         this.setLayout(null);
         MouseEventsListener panelMover = new MouseEventsListener(this);
         this.addMouseListener(panelMover);

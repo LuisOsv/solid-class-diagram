@@ -9,10 +9,10 @@ import java.awt.dnd.DropTargetListener;
 
 public class OnDropTargetListener implements DropTargetListener {
 
-    private UmlObjectRelationship umlObjectRelationship;
+    private UmlBoard umlBoard;
 
-    public OnDropTargetListener(UmlObjectRelationship umlObjectRelationship) {
-        this.umlObjectRelationship = umlObjectRelationship;
+    public OnDropTargetListener(UmlBoard umlBoard) {
+        this.umlBoard = umlBoard;
     }
 
     @Override
@@ -38,9 +38,9 @@ public class OnDropTargetListener implements DropTargetListener {
     @Override
     public void drop(DropTargetDropEvent dropTargetDropEvent) {
         UmlObject object = new UmlClass((int) dropTargetDropEvent.getLocation().getX(), (int) dropTargetDropEvent.getLocation().getY());
-        this.umlObjectRelationship.addUmlObject(object);
+        this.umlBoard.addUmlObject(object);
         object.setVisible(false);
         object.setVisible(true);
-        this.umlObjectRelationship.repaint();
+        this.umlBoard.repaint();
     }
 }

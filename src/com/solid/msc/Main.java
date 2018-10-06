@@ -16,7 +16,7 @@ public class Main extends JFrame {
         this.getContentPane().setLayout(new BorderLayout());
 
 
-        UmlObjectRelationship umlPanel = new UmlObjectRelationship();
+        UmlBoard umlPanel = new UmlBoard();
         UmlObject object1 = new UmlClass(50, 50);
         UmlObject object2 = new UmlClass(100, 200);
 
