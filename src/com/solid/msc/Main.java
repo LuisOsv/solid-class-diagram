@@ -1,7 +1,6 @@
 package com.solid.msc;
 
 import com.solid.msc.UmlEntities.UmlClass;
-import com.solid.msc.UmlEntities.UmlInterface;
 
 import javax.swing.*;
 import java.awt.*;
@@ -27,14 +26,14 @@ public class Main extends JFrame {
         JPanel menus = new JPanel();
         BoxLayout layout1 = new BoxLayout(menus, BoxLayout.Y_AXIS);
         menus.setLayout(layout1);
-        DraggableUMLComponents draggableUMLComponents = new DraggableUMLComponents();
+        BuilderUMLComponents builderUMLComponents = new BuilderUMLComponents(umlBoard);
         SelectableUMLRelationships selectableUMLRelationships = new SelectableUMLRelationships();
 
-        draggableUMLComponents.setAlignmentX(Component.LEFT_ALIGNMENT);
+        builderUMLComponents.setAlignmentX(Component.LEFT_ALIGNMENT);
         selectableUMLRelationships.setAlignmentX(Component.LEFT_ALIGNMENT);
 
 
-        menus.add(draggableUMLComponents);
+        menus.add(builderUMLComponents);
         menus.add(selectableUMLRelationships);
 
         this.getContentPane().add(menus, BorderLayout.WEST);
