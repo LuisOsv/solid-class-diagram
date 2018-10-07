@@ -5,12 +5,10 @@ import com.solid.msc.UmlEntities.UmlComponent;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
 import java.awt.datatransfer.UnsupportedFlavorException;
-import java.io.IOException;
 
 public class TransferableEntity implements Transferable {
 
     protected static DataFlavor dataFlavor = new DataFlavor(UmlComponent.class, "A Drawable Component");
-    protected static DataFlavor[] supportedFlavors = {dataFlavor};
     private UmlComponent umlComponent;
 
     public TransferableEntity(UmlComponent umlComponent) {
@@ -28,7 +26,7 @@ public class TransferableEntity implements Transferable {
     }
 
     @Override
-    public Object getTransferData(DataFlavor flavor) throws UnsupportedFlavorException, IOException {
+    public Object getTransferData(DataFlavor flavor) throws UnsupportedFlavorException {
         if (flavor.equals(dataFlavor))
             return umlComponent;
         else

@@ -6,11 +6,9 @@ import javax.swing.event.MouseInputAdapter;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 
-
 public class MouseEventsListener extends MouseInputAdapter {
     private UmlBoard panel;
     private Point offset = new Point();
-    private int selectedIndex;
     private boolean dragging = false;
 
     public MouseEventsListener(UmlBoard umlRelationship) {
@@ -20,7 +18,6 @@ public class MouseEventsListener extends MouseInputAdapter {
     @Override
     public void mouseClicked(MouseEvent mouseEvent) {
         super.mouseClicked(mouseEvent);
-
         UmlComponent umlObject = getEntityByPoint(mouseEvent.getPoint());
         if (umlObject != null) {
             handleEntityClickedEvent(umlObject);

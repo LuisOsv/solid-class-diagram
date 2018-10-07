@@ -11,13 +11,10 @@ import java.awt.*;
 public class Main extends JFrame {
 
     public void init() {
-
-
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(400, 400);
         this.setLocation(200, 200);
         this.getContentPane().setLayout(new BorderLayout());
-
 
         UmlBoard umlBoard = new UmlBoard();
         UmlObject object1 = new UmlClass();
@@ -37,22 +34,16 @@ public class Main extends JFrame {
         builderUMLComponents.setAlignmentX(Component.LEFT_ALIGNMENT);
         relationshipMenuBuilder.setAlignmentX(Component.LEFT_ALIGNMENT);
 
-
         menus.add(builderUMLComponents);
         menus.add(relationshipMenuBuilder);
 
         this.getContentPane().add(menus, BorderLayout.WEST);
-
-
         this.getContentPane().add(umlBoard, BorderLayout.CENTER);
-
         this.setVisible(true);
     }
 
     public static void main(String[] args) {
-        Main x = new Main();
-        x.init();
-
+        Main application = new Main();
+        application.init();
     }
-
 }

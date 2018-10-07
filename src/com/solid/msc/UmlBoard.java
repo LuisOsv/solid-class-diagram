@@ -13,7 +13,7 @@ public class UmlBoard extends JPanel {
 
     public UmlBoard() {
         this.setLayout(null);
-        drawableObjects = new ArrayList<UmlComponent>();
+        drawableObjects = new ArrayList<>();
         MouseEventsListener panelMover = new MouseEventsListener(this);
         this.addMouseListener(panelMover);
         this.addMouseMotionListener(panelMover);
