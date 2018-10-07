@@ -8,10 +8,6 @@ import java.awt.*;
 
 public class UmlClass extends UmlObject {
 
-    public UmlClass(int positionX, int positionY) {
-        super(positionX, positionY);
-    }
-
     @Override
     public void drawRelation(Graphics2D graphics2D, Point originPoint, Point targetPoint, RelationshipType relationshipType) {
         super.drawRelation(graphics2D, originPoint, targetPoint, relationshipType);

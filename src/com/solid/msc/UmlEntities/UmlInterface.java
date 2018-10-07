@@ -9,10 +9,6 @@ import java.awt.*;
 
 public class UmlInterface extends UmlObject {
 
-    public UmlInterface(int positionX, int positionY) {
-        super(positionX, positionY);
-    }
-
     @Override
     public void drawRelation(Graphics2D graphics2D, Point originPoint, Point targetPoint, RelationshipType relationshipType) {
         super.drawRelation(graphics2D, originPoint, targetPoint, relationshipType);
@@ -33,8 +29,8 @@ public class UmlInterface extends UmlObject {
         JLabel interfaceRightSymbol = new JLabel(">>");
 
         this.getFigure().add(interfaceLeftSymbol, BorderLayout.WEST);
-        this.getFigure().add(this.getTextField(),BorderLayout.CENTER);
-        this.getFigure().add(interfaceRightSymbol,BorderLayout.EAST);
+        this.getFigure().add(this.getTextField(), BorderLayout.CENTER);
+        this.getFigure().add(interfaceRightSymbol, BorderLayout.EAST);
 
         umlBoard.repaint();
     }
