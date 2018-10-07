@@ -26,7 +26,7 @@ public class Main extends JFrame {
         JPanel menus = new JPanel();
         BoxLayout layout1 = new BoxLayout(menus, BoxLayout.Y_AXIS);
         menus.setLayout(layout1);
-        BuilderUMLComponents builderUMLComponents = new BuilderUMLComponents(umlBoard);
+        MenuBuilderUMLComponents builderUMLComponents = new MenuBuilderUMLComponents(umlBoard);
         SelectableUMLRelationships selectableUMLRelationships = new SelectableUMLRelationships();
 
         builderUMLComponents.setAlignmentX(Component.LEFT_ALIGNMENT);

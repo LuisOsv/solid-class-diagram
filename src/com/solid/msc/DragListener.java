@@ -13,11 +13,11 @@ import java.awt.dnd.DragSourceListener;
 public class DragListener implements DragSourceListener {
 
     private UmlBoard umlBoard;
-    private EntityType entityType;
+    private DrawableComponent drawableComponent;
 
-    public DragListener(UmlBoard umlBoard, EntityType entityType) {
+    public DragListener(UmlBoard umlBoard, DrawableComponent drawableComponent) {
         this.umlBoard = umlBoard;
-        this.entityType = entityType;
+        this.drawableComponent = drawableComponent;
     }
 
     @Override
@@ -42,28 +42,7 @@ public class DragListener implements DragSourceListener {
 
     @Override
     public void dragDropEnd(DragSourceDropEvent dragSourceDropEvent) {
-        if(entityType.equals(EntityType.CLASS)){
-            DrawableComponent umlComponent = new UmlClass((int) dragSourceDropEvent.getLocation().getX(), (int) dragSourceDropEvent.getLocation().getY());
-            this.umlBoard.addUmlObject(umlComponent);
-            umlComponent.getFigure().setVisible(false);
-            umlComponent.getFigure().setVisible(true);
-            this.umlBoard.repaint();
-
-        }else {
-            DrawableComponent umlComponent = new UmlInterface((int) dragSourceDropEvent.getLocation().getX(), (int) dragSourceDropEvent.getLocation().getY());
-            this.umlBoard.addUmlObject(umlComponent);
-            umlComponent.getFigure().setVisible(false);
-            umlComponent.getFigure().setVisible(true);
-
-            JLabel interfaceLeftSymbol = new JLabel("<<");
-            JLabel interfaceRightSymbol = new JLabel(">>");
-
-            umlComponent.getFigure().add(interfaceLeftSymbol, BorderLayout.WEST);
-            umlComponent.getFigure().add(umlComponent.getTextField(),BorderLayout.CENTER);
-            umlComponent.getFigure().add(interfaceRightSymbol,BorderLayout.EAST);
-
-            this.umlBoard.repaint();
-        }
-
+        drawableComponent.setPosition((int) dragSourceDropEvent.getLocation().getX(), (int) dragSourceDropEvent.getLocation().getX());
+        drawableComponent.drawFigureOnBoard(umlBoard);
     }
 }

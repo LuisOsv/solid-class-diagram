@@ -13,8 +13,13 @@ public abstract class UmlObject implements DrawableComponent {
 
     public UmlObject(int positionX, int positionY) {
         figure = new SquareFigure(getName());
-        figure.setBounds(new Rectangle(positionX, positionY, 125, 40));
+        figure.setBounds(new Rectangle(positionX, positionY, 150, 40));
         relationShips = new ArrayList<Relation>();
+    }
+
+    @Override
+    public void setPosition(int positionX, int positionY) {
+        figure.setBounds(new Rectangle(positionX, positionY, 150, 40));
     }
 
     @Override

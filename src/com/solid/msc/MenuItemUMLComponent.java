@@ -13,9 +13,9 @@ import java.awt.dnd.DragSource;
 public class MenuItemUMLComponent extends JPanel implements DragGestureListener {
     private DragSource dragSource;
     private UmlBoard umlBoard;
-    private EntityType entityType;
+    private DrawableComponent drawableComponent;
 
-    public MenuItemUMLComponent(String menuName, Color borderColor, UmlBoard umlBoard, EntityType entityType) {
+    public MenuItemUMLComponent(String menuName, Color borderColor, UmlBoard umlBoard, DrawableComponent drawableComponent) {
         this.add(new JLabel(menuName));
         dragSource = new DragSource();
         dragSource.createDefaultDragGestureRecognizer(this, DnDConstants.ACTION_COPY_OR_MOVE, this);
@@ -23,12 +23,12 @@ public class MenuItemUMLComponent extends JPanel implements DragGestureListener 
         this.setBorder(border);
         this.setMaximumSize(new Dimension(100, 50));
         this.umlBoard = umlBoard;
-        this.entityType = entityType;
+        this.drawableComponent = drawableComponent;
     }
 
     @Override
     public void dragGestureRecognized(DragGestureEvent dragGestureEvent) {
         Transferable transferable = new StringSelection(null);
-        dragSource.startDrag(dragGestureEvent, DragSource.DefaultCopyDrop, transferable, new DragListener(umlBoard, entityType));
+        dragSource.startDrag(dragGestureEvent, DragSource.DefaultCopyDrop, transferable, new DragListener(umlBoard, drawableComponent));
     }
 }

@@ -25,5 +25,7 @@ public interface DrawableComponent {
 
     Point getCenter();
 
+    void drawFigureOnBoard(UmlBoard umlBoard);
 
+    void setPosition(int positionX, int positionY);
 }
