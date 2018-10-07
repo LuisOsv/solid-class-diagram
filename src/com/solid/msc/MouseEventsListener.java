@@ -47,9 +47,6 @@ public class MouseEventsListener extends MouseInputAdapter {
     @Override
     public void mousePressed(MouseEvent mouseEvent) {
         Point point = mouseEvent.getPoint();
-        // This way of identifying the target JPanel should work as
-        // long as the target is not focusable and does not contain
-        // any components that consume MouseEvents, eg, JTextField.
         UmlComponent component = getEntityByPoint(point);
         if (component != null) {
             offset.x = point.x - component.getFigure().getBounds().x;
