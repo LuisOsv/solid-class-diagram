@@ -3,14 +3,11 @@ package com.solid.msc.UmlEntities;
 import com.solid.msc.RelationHelper;
 import com.solid.msc.RelationshipType;
 import com.solid.msc.UmlRelation;
-import com.solid.msc.umlRelationShip.AssociationRelationShip;
-import com.solid.msc.umlRelationShip.DependencyRelationShip;
 import com.solid.msc.umlRelationShip.UmlRelationShipFactory;
 import com.solid.msc.umlRelationShip.UmlRelationshipDrawer;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.geom.Line2D;
 import java.util.ArrayList;
 
 
@@ -71,16 +68,16 @@ public abstract class UmlObject implements UmlComponent {
 
     @Override
     public void drawNewRelation(Graphics2D graphics2D, RelationshipType relationshipType) {
-        Point originPoint = RelationHelper.getInstance().getOriginUmlObject().getCenter();
+        Point originPoint = RelationHelper.getInstance().getOriginUmlObject().getConnectionPoint();
         Point targetPoint = RelationHelper.getInstance().getTargetTemporaryPoint();
         drawRelation(graphics2D, originPoint, targetPoint, relationshipType);
     }
 
     @Override
-    public Point getCenter() {
+    public Point getConnectionPoint() {
         Point point = new Point();
         point.x = (int) getFigure().getBounds().getCenterX();
-        point.y = (int) getFigure().getBounds().getCenterY();
+        point.y = (int) getFigure().getBounds().getY();
         return point;
     }
 }

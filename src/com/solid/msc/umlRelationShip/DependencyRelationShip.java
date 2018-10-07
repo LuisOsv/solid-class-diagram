@@ -45,10 +45,10 @@ public class DependencyRelationShip implements UmlRelationshipDrawer {
 
     protected void drawConnector() {
         double lineAngle = calculateLineAngle(startPoint, endPoint);
-        double lineDirectionStartX = ARROW_SIZE * Math.cos(ARROW_ANGLE - lineAngle);
-        double lineDirectionStartY = ARROW_SIZE * Math.sin(ARROW_ANGLE - lineAngle);
-        double lineDirectionEndX = ARROW_SIZE * Math.cos(ARROW_ANGLE + lineAngle);
-        double lineDirectionEndY = ARROW_SIZE * Math.sin(ARROW_ANGLE + lineAngle);
+        double lineDirectionStartX = ARROW_SIZE * Math.cos(lineAngle - ARROW_ANGLE);
+        double lineDirectionStartY = ARROW_SIZE * Math.sin(lineAngle - ARROW_ANGLE);
+        double lineDirectionEndX = ARROW_SIZE * Math.cos(lineAngle + ARROW_ANGLE);
+        double lineDirectionEndY = ARROW_SIZE * Math.sin(lineAngle + ARROW_ANGLE);
 
         GeneralPath polygon = new GeneralPath();
 

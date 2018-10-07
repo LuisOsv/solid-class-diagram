@@ -4,18 +4,18 @@ import java.awt.*;
 import java.awt.geom.*;
 
 public class AssociationRelationShip implements UmlRelationshipDrawer {
-    Graphics2D graphics2D;
-    Point2D startPoint;
-    Point2D endPoint;
-    final static float ARROW_SIZE = 20;
-    Color lineColor;
-    Color arrowColor;
-    Color backgroundArrowColor;
-    final static double ARROW_ANGLE = 75;
-    final static Stroke LINE_STROKE = new BasicStroke(2f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 1.0f,
+    private Graphics2D graphics2D;
+    private Point2D startPoint;
+    private Point2D endPoint;
+    private final static float ARROW_SIZE = 20;
+    private Color lineColor;
+    private Color arrowColor;
+    private Color backgroundArrowColor;
+    private final static double ARROW_ANGLE = 75;
+    private final static Stroke LINE_STROKE = new BasicStroke(2f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 1.0f,
             null, 0.0f);
 
-    final static Stroke ARROW_STROKE = new BasicStroke(2f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 1.0f,
+    private final static Stroke ARROW_STROKE = new BasicStroke(2f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 1.0f,
             null, 0.0f);
 
     public AssociationRelationShip(Graphics2D graphics2D, Point2D originPoint, Point2D targetPoint, Color lineColor,

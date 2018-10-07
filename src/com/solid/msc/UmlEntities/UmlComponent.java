@@ -27,7 +27,7 @@ public interface UmlComponent {
 
     void drawNewRelation(Graphics2D graphics2D, RelationshipType relationshipType);
 
-    Point getCenter();
+    Point getConnectionPoint();
 
     void drawFigureOnBoard(UmlBoard umlBoard);
 
