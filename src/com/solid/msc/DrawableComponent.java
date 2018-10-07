@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public interface DrawableComponent {
 
-    void drawRelation(Graphics2D graphics2D, Point point1, Point point2, RelationshipType relationshipType);
+    void drawRelation(Graphics2D graphics2D, Point originPoint, Point targetPoint, RelationshipType relationshipType);
 
     void addRelation(DrawableComponent relatedDrawableObject, RelationshipType relationshipType);
 

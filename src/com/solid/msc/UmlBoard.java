@@ -46,11 +46,11 @@ public class UmlBoard extends JPanel {
 
     public void drawRelations(Graphics2D graphics2D, DrawableComponent umlObject) {
         if (umlObject.getRelationShips().size() > 0) {
-            Point point1 = umlObject.getCenter();
+            Point originPoint = umlObject.getCenter();
             for (int j = 0; j < umlObject.getRelationShips().size(); j++) {
                 UmlObject childUmlObject = (UmlObject) umlObject.getRelationShips().get(j).getTargetDrawableObject();
-                Point point2 = childUmlObject.getCenter();
-                umlObject.drawRelation(graphics2D, point1, point2, umlObject.getRelationShips().get(j).getRelationshipType());
+                Point targetPoint = childUmlObject.getCenter();
+                umlObject.drawRelation(graphics2D, originPoint, targetPoint, umlObject.getRelationShips().get(j).getRelationshipType());
             }
         }
     }

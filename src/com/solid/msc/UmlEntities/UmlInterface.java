@@ -14,8 +14,8 @@ public class UmlInterface extends UmlObject {
     }
 
     @Override
-    public void drawRelation(Graphics2D graphics2D, Point point1, Point point2, RelationshipType relationshipType) {
-        super.drawRelation(graphics2D, point1, point2, relationshipType);
+    public void drawRelation(Graphics2D graphics2D, Point originPoint, Point targetPoint, RelationshipType relationshipType) {
+        super.drawRelation(graphics2D, originPoint, targetPoint, relationshipType);
     }
 
     @Override

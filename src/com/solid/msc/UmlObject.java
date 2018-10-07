@@ -1,5 +1,9 @@
 package com.solid.msc;
 
+import com.solid.msc.drawRelationShip.AssociationRelationShip;
+import com.solid.msc.drawRelationShip.DependencyRelationShip;
+import com.solid.msc.drawRelationShip.DrawLineWithConnectorBetweenTwoObject;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.Line2D;
@@ -54,8 +58,8 @@ public abstract class UmlObject implements DrawableComponent {
     }
 
     @Override
-    public void drawRelation(Graphics2D graphics2D, Point point1, Point point2, RelationshipType relationshipType) {
-        if (point1 != null && point2 != null) {
+    public void drawRelation(Graphics2D graphics2D, Point originPoint, Point targetPoint, RelationshipType relationshipType) {
+        if (originPoint != null && targetPoint != null) {
             Stroke defaultStroke;
             defaultStroke = graphics2D.getStroke();
             Stroke stroke2 = null;
@@ -63,16 +67,27 @@ public abstract class UmlObject implements DrawableComponent {
             if (relationshipType == RelationshipType.DEPENDENCY) {
                 stroke2 = new BasicStroke(4f, BasicStroke.CAP_BUTT,
                         BasicStroke.JOIN_MITER, 1.0f, null, 0.0f);
+                DrawLineWithConnectorBetweenTwoObject relationship =
+                        new DependencyRelationShip(graphics2D,originPoint,targetPoint,Color.BLACK,
+                                Color.BLACK, Color.WHITE);
+
+                relationship.drawLineWithConnectorBetweenTwoObject();
             } else {
                 if (relationshipType == RelationshipType.ASSOCIATION) {
                     stroke2 = new BasicStroke(4f, BasicStroke.CAP_BUTT,
                             BasicStroke.JOIN_MITER, 1.0f, dashingPattern2, 0.0f);
+
+                    DrawLineWithConnectorBetweenTwoObject relationship =
+                            new AssociationRelationShip(graphics2D,originPoint,targetPoint,Color.BLACK,
+                                    Color.BLACK, Color.WHITE);
+
+                    relationship.drawLineWithConnectorBetweenTwoObject();
                 }
             }
             if (stroke2 != null) {
                 graphics2D.setStroke(stroke2);
             }
-            graphics2D.draw(new Line2D.Double(point1, point2));
+            graphics2D.draw(new Line2D.Double(originPoint, targetPoint));
             graphics2D.setStroke(defaultStroke);
         }
     }
