@@ -1,4 +1,5 @@
 package com.solid.msc.drawRelationShip;
+
 import java.awt.*;
 import java.awt.geom.*;
 
@@ -11,14 +12,14 @@ public class AssociationRelationShip implements DrawLineWithConnectorBetweenTwoO
     Color arrowColor;
     Color backgroundArrowColor;
     final static double ARROW_ANGLE = 75;
-    final static Stroke LINE_STROKE = new BasicStroke(2f, BasicStroke.CAP_BUTT,BasicStroke.JOIN_MITER, 1.0f,
+    final static Stroke LINE_STROKE = new BasicStroke(2f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 1.0f,
             null, 0.0f);
 
-    final static Stroke ARROW_STROKE = new BasicStroke(2f, BasicStroke.CAP_BUTT,BasicStroke.JOIN_MITER, 1.0f,
+    final static Stroke ARROW_STROKE = new BasicStroke(2f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 1.0f,
             null, 0.0f);
 
     public AssociationRelationShip(Graphics2D graphics2D, Point2D startPoint, Point2D endPoint, Color lineColor,
-                                   Color arrowColor, Color backgroundArrowColor){
+                                   Color arrowColor, Color backgroundArrowColor) {
         this.graphics2D = graphics2D;
         this.startPoint = startPoint;
         this.endPoint = endPoint;
@@ -28,22 +29,22 @@ public class AssociationRelationShip implements DrawLineWithConnectorBetweenTwoO
     }
 
     @Override
-    public void drawLineWithConnectorBetweenTwoObject(){
+    public void drawLineWithConnectorBetweenTwoObject() {
         drawLine();
         drawConnector();
     }
 
 
-    protected void drawLine(){
+    protected void drawLine() {
         graphics2D.setColor(lineColor);
         graphics2D.setStroke(LINE_STROKE);
         graphics2D.drawLine((int) startPoint.getX(), (int) startPoint.getY(), (int) (endPoint.getX()),
                 (int) (endPoint.getY()));
     }
 
-    protected void drawConnector(){
-        double lineAngle =  calculateLineAngle(startPoint,endPoint);
-        double lineDirectionStartX= ARROW_SIZE * Math.cos(lineAngle - ARROW_ANGLE);
+    protected void drawConnector() {
+        double lineAngle = calculateLineAngle(startPoint, endPoint);
+        double lineDirectionStartX = ARROW_SIZE * Math.cos(lineAngle - ARROW_ANGLE);
         double lineDirectionStartY = ARROW_SIZE * Math.sin(lineAngle - ARROW_ANGLE);
         double lineDirectionEndX = ARROW_SIZE * Math.cos(lineAngle + ARROW_ANGLE);
         double lineDirectionEndY = ARROW_SIZE * Math.sin(lineAngle + ARROW_ANGLE);
