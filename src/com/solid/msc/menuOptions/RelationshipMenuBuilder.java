@@ -14,6 +14,7 @@ public class RelationshipMenuBuilder extends JPanel {
 
     private void addEntities() {
         RelationshipMenuItem association = new RelationshipMenuItem(RelationshipType.ASSOCIATION);
+        association.setSelected(true);
         RelationshipMenuItem dependency = new RelationshipMenuItem(RelationshipType.DEPENDENCY);
         ButtonGroup group = new ButtonGroup();
         group.add(association);

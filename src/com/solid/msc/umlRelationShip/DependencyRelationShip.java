@@ -3,7 +3,7 @@ package com.solid.msc.umlRelationShip;
 import java.awt.*;
 import java.awt.geom.*;
 
-public class DependencyRelationShip implements DrawLineWithConnectorBetweenTwoObject {
+public class DependencyRelationShip implements UmlRelationshipDrawer {
     Graphics2D graphics2D;
     Point2D startPoint;
     Point2D endPoint;

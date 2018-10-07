@@ -11,6 +11,10 @@ public class RelationHelper {
     private Point targetTemporaryPoint;
     private RelationshipType relationshipType;
 
+    private RelationHelper() {
+        relationshipType = RelationshipType.ASSOCIATION;
+    }
+
     public UmlComponent getOriginUmlObject() {
         return originUmlObject;
     }

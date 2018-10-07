@@ -2,7 +2,7 @@ package com.solid.msc.umlRelationShip;
 
 import java.awt.geom.Point2D;
 
-public interface DrawLineWithConnectorBetweenTwoObject {
+public interface UmlRelationshipDrawer {
 
     void drawLineWithConnectorBetweenTwoObject();
 

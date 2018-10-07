@@ -3,7 +3,7 @@ package com.solid.msc.umlRelationShip;
 import java.awt.*;
 import java.awt.geom.*;
 
-public class AssociationRelationShip implements DrawLineWithConnectorBetweenTwoObject {
+public class AssociationRelationShip implements UmlRelationshipDrawer {
     Graphics2D graphics2D;
     Point2D startPoint;
     Point2D endPoint;
@@ -18,11 +18,11 @@ public class AssociationRelationShip implements DrawLineWithConnectorBetweenTwoO
     final static Stroke ARROW_STROKE = new BasicStroke(2f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 1.0f,
             null, 0.0f);
 
-    public AssociationRelationShip(Graphics2D graphics2D, Point2D startPoint, Point2D endPoint, Color lineColor,
+    public AssociationRelationShip(Graphics2D graphics2D, Point2D originPoint, Point2D targetPoint, Color lineColor,
                                    Color arrowColor, Color backgroundArrowColor) {
         this.graphics2D = graphics2D;
-        this.startPoint = startPoint;
-        this.endPoint = endPoint;
+        this.startPoint = originPoint;
+        this.endPoint = targetPoint;
         this.lineColor = lineColor;
         this.arrowColor = arrowColor;
         this.backgroundArrowColor = backgroundArrowColor;
