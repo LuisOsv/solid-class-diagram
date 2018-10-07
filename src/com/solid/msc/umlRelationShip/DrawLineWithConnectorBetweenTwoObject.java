@@ -1,4 +1,4 @@
-package com.solid.msc.drawRelationShip;
+package com.solid.msc.umlRelationShip;
 
 import java.awt.geom.Point2D;
 

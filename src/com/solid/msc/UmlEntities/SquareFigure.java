@@ -1,4 +1,4 @@
-package com.solid.msc;
+package com.solid.msc.UmlEntities;
 
 import javax.swing.*;
 

@@ -2,7 +2,6 @@ package com.solid.msc.UmlEntities;
 
 import com.solid.msc.RelationshipType;
 import com.solid.msc.UmlBoard;
-import com.solid.msc.UmlObject;
 
 import javax.swing.*;
 import java.awt.*;

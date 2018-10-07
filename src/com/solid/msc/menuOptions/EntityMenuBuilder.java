@@ -1,5 +1,6 @@
-package com.solid.msc;
+package com.solid.msc.menuOptions;
 
+import com.solid.msc.UmlBoard;
 import com.solid.msc.UmlEntities.UmlClass;
 import com.solid.msc.UmlEntities.UmlInterface;
 
@@ -7,19 +8,19 @@ import javax.swing.*;
 import java.awt.*;
 
 
-public class MenuBuilderUMLComponents extends JPanel {
+public class EntityMenuBuilder extends JPanel {
 
     private UmlBoard umlBoard;
 
-    public MenuBuilderUMLComponents(UmlBoard umlBoard) {
+    public EntityMenuBuilder(UmlBoard umlBoard) {
         this.umlBoard = umlBoard;
         initializePanel();
         addEntities();
     }
 
     private void addEntities() {
-        this.add(new MenuItemUMLComponent("Class", Color.DARK_GRAY, umlBoard, UmlClass.class));
-        this.add(new MenuItemUMLComponent("<<Interface>>", Color.lightGray, umlBoard, UmlInterface.class));
+        this.add(new EntityMenuItem("Class", Color.DARK_GRAY, umlBoard, UmlClass.class));
+        this.add(new EntityMenuItem("<<Interface>>", Color.lightGray, umlBoard, UmlInterface.class));
     }
 
     private void initializePanel() {

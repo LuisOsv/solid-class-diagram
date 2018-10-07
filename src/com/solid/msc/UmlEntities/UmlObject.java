@@ -1,8 +1,11 @@
-package com.solid.msc;
+package com.solid.msc.UmlEntities;
 
-import com.solid.msc.drawRelationShip.AssociationRelationShip;
-import com.solid.msc.drawRelationShip.DependencyRelationShip;
-import com.solid.msc.drawRelationShip.DrawLineWithConnectorBetweenTwoObject;
+import com.solid.msc.UmlRelation;
+import com.solid.msc.RelationHelper;
+import com.solid.msc.RelationshipType;
+import com.solid.msc.umlRelationShip.AssociationRelationShip;
+import com.solid.msc.umlRelationShip.DependencyRelationShip;
+import com.solid.msc.umlRelationShip.DrawLineWithConnectorBetweenTwoObject;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,15 +13,15 @@ import java.awt.geom.Line2D;
 import java.util.ArrayList;
 
 
-public abstract class UmlObject implements DrawableComponent {
-    private ArrayList<Relation> relationShips;
+public abstract class UmlObject implements UmlComponent {
+    private ArrayList<UmlRelation> umlRelationShips;
     private String name;
     private SquareFigure figure;
 
     public UmlObject() {
         figure = new SquareFigure(getName());
         figure.setBounds(new Rectangle(0, 0, 150, 40));
-        relationShips = new ArrayList<Relation>();
+        umlRelationShips = new ArrayList<UmlRelation>();
     }
 
     @Override
@@ -27,14 +30,14 @@ public abstract class UmlObject implements DrawableComponent {
     }
 
     @Override
-    public ArrayList<Relation> getRelationShips() {
-        return relationShips;
+    public ArrayList<UmlRelation> getUmlRelationShips() {
+        return umlRelationShips;
     }
 
     @Override
-    public void addRelation(DrawableComponent relatedDrawableObject, RelationshipType relationshipType) {
-        Relation relation = new Relation(relatedDrawableObject, relationshipType);
-        relationShips.add(relation);
+    public void addRelation(UmlComponent relatedDrawableObject, RelationshipType relationshipType) {
+        UmlRelation umlRelation = new UmlRelation(relatedDrawableObject, relationshipType);
+        umlRelationShips.add(umlRelation);
     }
 
     @Override

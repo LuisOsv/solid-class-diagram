@@ -1,6 +1,6 @@
 package com.solid.msc;
 
-import com.solid.msc.UmlEntities.UmlClass;
+import com.solid.msc.UmlEntities.UmlComponent;
 
 import java.awt.datatransfer.Transferable;
 import java.awt.datatransfer.UnsupportedFlavorException;
@@ -42,9 +42,9 @@ public class OnDropTargetListener implements DropTargetListener {
     public void drop(DropTargetDropEvent dropTargetDropEvent) {
         try {
             Transferable transferable = dropTargetDropEvent.getTransferable();
-            DrawableComponent drawableComponent = (DrawableComponent) transferable.getTransferData(TransferableEntity.dataFlavor);
-            drawableComponent.setPosition((int) dropTargetDropEvent.getLocation().getX(), (int) dropTargetDropEvent.getLocation().getY());
-            drawableComponent.drawFigureOnBoard(umlBoard);
+            UmlComponent umlComponent = (UmlComponent) transferable.getTransferData(TransferableEntity.dataFlavor);
+            umlComponent.setPosition((int) dropTargetDropEvent.getLocation().getX(), (int) dropTargetDropEvent.getLocation().getY());
+            umlComponent.drawFigureOnBoard(umlBoard);
         } catch (UnsupportedFlavorException e) {
             e.printStackTrace();
         } catch (IOException e) {

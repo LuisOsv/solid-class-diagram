@@ -1,4 +1,9 @@
-package com.solid.msc;
+package com.solid.msc.menuOptions;
+
+import com.solid.msc.TransferableEntity;
+import com.solid.msc.UmlBoard;
+import com.solid.msc.UmlEntities.UmlComponent;
+import com.solid.msc.UmlEntities.UmlComponentFactory;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -9,12 +14,12 @@ import java.awt.dnd.DragGestureEvent;
 import java.awt.dnd.DragGestureListener;
 import java.awt.dnd.DragSource;
 
-public class MenuItemUMLComponent extends JPanel implements DragGestureListener {
+public class EntityMenuItem extends JPanel implements DragGestureListener {
     private DragSource dragSource;
     private UmlBoard umlBoard;
     private Class<?> drawableComponentType;
 
-    public MenuItemUMLComponent(String menuName, Color borderColor, UmlBoard umlBoard, Class<?> drawableComponentType) {
+    public EntityMenuItem(String menuName, Color borderColor, UmlBoard umlBoard, Class<?> drawableComponentType) {
         this.add(new JLabel(menuName));
         dragSource = new DragSource();
         dragSource.createDefaultDragGestureRecognizer(this, DnDConstants.ACTION_COPY_OR_MOVE, this);
@@ -27,8 +32,8 @@ public class MenuItemUMLComponent extends JPanel implements DragGestureListener 
 
     @Override
     public void dragGestureRecognized(DragGestureEvent dragGestureEvent) {
-        DrawableComponent drawableComponent = DrawableComponentFactory.getDrawableComponent(drawableComponentType);
-        Transferable transferable = new TransferableEntity(drawableComponent);
+        UmlComponent umlComponent = UmlComponentFactory.getDrawableComponent(drawableComponentType);
+        Transferable transferable = new TransferableEntity(umlComponent);
         dragSource.startDrag(dragGestureEvent, DragSource.DefaultCopyDrop, transferable, null);
     }
 }

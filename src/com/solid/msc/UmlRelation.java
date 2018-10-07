@@ -1,15 +1,17 @@
 package com.solid.msc;
 
-public class Relation {
-    private DrawableComponent targetDrawableObject;
+import com.solid.msc.UmlEntities.UmlComponent;
+
+public class UmlRelation {
+    private UmlComponent targetDrawableObject;
     private RelationshipType relationshipType;
 
-    public Relation(DrawableComponent targetDrawableObject, RelationshipType relationshipType) {
+    public UmlRelation(UmlComponent targetDrawableObject, RelationshipType relationshipType) {
         this.targetDrawableObject = targetDrawableObject;
         this.relationshipType = relationshipType;
     }
 
-    public DrawableComponent getTargetDrawableObject() {
+    public UmlComponent getTargetDrawableObject() {
         return targetDrawableObject;
     }
 

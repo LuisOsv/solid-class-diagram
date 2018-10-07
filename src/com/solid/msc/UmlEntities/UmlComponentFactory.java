@@ -1,14 +1,14 @@
-package com.solid.msc;
+package com.solid.msc.UmlEntities;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
-public class DrawableComponentFactory {
-    public static DrawableComponent getDrawableComponent(Class<?> drawableComponentType) {
-        DrawableComponent drawableComponent = null;
+public class UmlComponentFactory {
+    public static UmlComponent getDrawableComponent(Class<?> drawableComponentType) {
+        UmlComponent umlComponent = null;
         try {
             Constructor<?> constructor = drawableComponentType.getConstructor();
-            drawableComponent = (DrawableComponent) constructor.newInstance(new Object[]{});
+            umlComponent = (UmlComponent) constructor.newInstance(new Object[]{});
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {
@@ -18,6 +18,6 @@ public class DrawableComponentFactory {
         } catch (InvocationTargetException e) {
             e.printStackTrace();
         }
-        return drawableComponent;
+        return umlComponent;
     }
 }

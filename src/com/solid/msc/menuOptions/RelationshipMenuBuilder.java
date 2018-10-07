@@ -1,18 +1,20 @@
-package com.solid.msc;
+package com.solid.msc.menuOptions;
+
+import com.solid.msc.RelationshipType;
 
 import javax.swing.*;
 
 
-public class SelectableUMLRelationships extends JPanel {
+public class RelationshipMenuBuilder extends JPanel {
 
-    public SelectableUMLRelationships() {
+    public RelationshipMenuBuilder() {
         initializePanel();
         addEntities();
     }
 
     private void addEntities() {
-        MenuBuilderUMLRelationships association = new MenuBuilderUMLRelationships(RelationshipType.ASSOCIATION);
-        MenuBuilderUMLRelationships dependency = new MenuBuilderUMLRelationships(RelationshipType.DEPENDENCY);
+        RelationshipMenuItem association = new RelationshipMenuItem(RelationshipType.ASSOCIATION);
+        RelationshipMenuItem dependency = new RelationshipMenuItem(RelationshipType.DEPENDENCY);
         ButtonGroup group = new ButtonGroup();
         group.add(association);
         group.add(dependency);

@@ -1,5 +1,7 @@
 package com.solid.msc;
 
+import com.solid.msc.UmlEntities.UmlComponent;
+
 import javax.swing.event.MouseInputAdapter;
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -19,13 +21,13 @@ public class MouseEventsListener extends MouseInputAdapter {
     public void mouseClicked(MouseEvent mouseEvent) {
         super.mouseClicked(mouseEvent);
 
-        DrawableComponent umlObject = getEntityByPoint(mouseEvent.getPoint());
+        UmlComponent umlObject = getEntityByPoint(mouseEvent.getPoint());
         if (umlObject != null) {
             handleEntityClickedEvent(umlObject);
         }
     }
 
-    private void handleEntityClickedEvent(DrawableComponent umlObject) {
+    private void handleEntityClickedEvent(UmlComponent umlObject) {
         if (RelationHelper.getInstance().isAddingRelation()) {
             RelationHelper.getInstance().completeRelation(umlObject, RelationHelper.getInstance().getRelationshipType());
         } else {
@@ -48,7 +50,7 @@ public class MouseEventsListener extends MouseInputAdapter {
         // This way of identifying the target JPanel should work as
         // long as the target is not focusable and does not contain
         // any components that consume MouseEvents, eg, JTextField.
-        DrawableComponent component = getEntityByPoint(point);
+        UmlComponent component = getEntityByPoint(point);
         if (component != null) {
             offset.x = point.x - component.getFigure().getBounds().x;
             offset.y = point.y - component.getFigure().getBounds().y;
@@ -56,8 +58,8 @@ public class MouseEventsListener extends MouseInputAdapter {
         }
     }
 
-    private DrawableComponent getEntityByPoint(Point point) {
-        DrawableComponent component = null;
+    private UmlComponent getEntityByPoint(Point point) {
+        UmlComponent component = null;
         for (int j = 0; j < panel.getDrawableObjects().size(); j++) {
             Rectangle rectangle = panel.getDrawableObjects().get(j).getFigure().getBounds();
             if (rectangle.contains(point)) {
@@ -77,7 +79,7 @@ public class MouseEventsListener extends MouseInputAdapter {
         if (dragging) {
             int x = mouseEvent.getX() - offset.x;
             int y = mouseEvent.getY() - offset.y;
-            DrawableComponent drawableObject = getEntityByPoint(mouseEvent.getPoint());
+            UmlComponent drawableObject = getEntityByPoint(mouseEvent.getPoint());
             if (drawableObject != null) {
                 drawableObject.getFigure().setLocation(x, y);
                 panel.repaint();

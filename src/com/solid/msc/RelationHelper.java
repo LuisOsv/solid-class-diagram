@@ -1,23 +1,21 @@
 package com.solid.msc;
 
+import com.solid.msc.UmlEntities.UmlComponent;
+
 import java.awt.*;
 
 public class RelationHelper {
 
     private static RelationHelper relationHelper;
-    private DrawableComponent originUmlObject;
+    private UmlComponent originUmlObject;
     private Point targetTemporaryPoint;
     private RelationshipType relationshipType;
 
-    private void AddRelationHelper() {
-
-    }
-
-    public DrawableComponent getOriginUmlObject() {
+    public UmlComponent getOriginUmlObject() {
         return originUmlObject;
     }
 
-    public void setOriginUmlObject(DrawableComponent originUmlObject) {
+    public void setOriginUmlObject(UmlComponent originUmlObject) {
         this.originUmlObject = originUmlObject;
     }
 
@@ -25,7 +23,7 @@ public class RelationHelper {
         return originUmlObject != null;
     }
 
-    public void completeRelation(DrawableComponent umlObject, RelationshipType relationshipType) {
+    public void completeRelation(UmlComponent umlObject, RelationshipType relationshipType) {
         this.originUmlObject.addRelation(umlObject, relationshipType);
         RelationHelper.getInstance().clear();
     }

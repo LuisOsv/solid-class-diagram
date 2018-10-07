@@ -1,6 +1,9 @@
 package com.solid.msc;
 
 import com.solid.msc.UmlEntities.UmlClass;
+import com.solid.msc.UmlEntities.UmlObject;
+import com.solid.msc.menuOptions.EntityMenuBuilder;
+import com.solid.msc.menuOptions.RelationshipMenuBuilder;
 
 import javax.swing.*;
 import java.awt.*;
@@ -28,15 +31,15 @@ public class Main extends JFrame {
         JPanel menus = new JPanel();
         BoxLayout layout1 = new BoxLayout(menus, BoxLayout.Y_AXIS);
         menus.setLayout(layout1);
-        MenuBuilderUMLComponents builderUMLComponents = new MenuBuilderUMLComponents(umlBoard);
-        SelectableUMLRelationships selectableUMLRelationships = new SelectableUMLRelationships();
+        EntityMenuBuilder builderUMLComponents = new EntityMenuBuilder(umlBoard);
+        RelationshipMenuBuilder relationshipMenuBuilder = new RelationshipMenuBuilder();
 
         builderUMLComponents.setAlignmentX(Component.LEFT_ALIGNMENT);
-        selectableUMLRelationships.setAlignmentX(Component.LEFT_ALIGNMENT);
+        relationshipMenuBuilder.setAlignmentX(Component.LEFT_ALIGNMENT);
 
 
         menus.add(builderUMLComponents);
-        menus.add(selectableUMLRelationships);
+        menus.add(relationshipMenuBuilder);
 
         this.getContentPane().add(menus, BorderLayout.WEST);
 

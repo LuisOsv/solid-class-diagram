@@ -1,4 +1,7 @@
-package com.solid.msc;
+package com.solid.msc.menuOptions;
+
+import com.solid.msc.RelationHelper;
+import com.solid.msc.RelationshipType;
 
 import javax.swing.event.MouseInputAdapter;
 import java.awt.event.MouseEvent;
@@ -12,7 +15,6 @@ public class RelationshipTypesEventListener extends MouseInputAdapter {
     @Override
     public void mouseClicked(MouseEvent mouseEvent){
         super.mouseClicked(mouseEvent);
-        System.out.println(relationshipType);
         RelationHelper.getInstance().setRelationshipType(relationshipType);
     }
 }
