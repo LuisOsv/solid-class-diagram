@@ -17,8 +17,10 @@ public class Main extends JFrame {
 
 
         UmlBoard umlBoard = new UmlBoard();
-        UmlObject object1 = new UmlClass(50, 50);
-        UmlObject object2 = new UmlClass(100, 200);
+        UmlObject object1 = new UmlClass();
+        object1.setPosition(50, 50);
+        UmlObject object2 = new UmlClass();
+        object2.setPosition(100, 100);
 
         umlBoard.addUmlObject(object1);
         umlBoard.addUmlObject(object2);

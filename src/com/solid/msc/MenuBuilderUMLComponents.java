@@ -18,8 +18,8 @@ public class MenuBuilderUMLComponents extends JPanel {
     }
 
     private void addEntities() {
-        this.add(new MenuItemUMLComponent("Class", Color.DARK_GRAY, umlBoard, new UmlClass(0,0)));
-        this.add(new MenuItemUMLComponent("<<Interface>>", Color.lightGray, umlBoard, new UmlInterface(0,0)));
+        this.add(new MenuItemUMLComponent("Class", Color.DARK_GRAY, umlBoard, UmlClass.class));
+        this.add(new MenuItemUMLComponent("<<Interface>>", Color.lightGray, umlBoard, UmlInterface.class));
     }
 
     private void initializePanel() {
