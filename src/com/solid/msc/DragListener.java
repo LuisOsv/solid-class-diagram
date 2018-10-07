@@ -12,12 +12,7 @@ import java.awt.dnd.DragSourceListener;
 
 public class DragListener implements DragSourceListener {
 
-    private UmlBoard umlBoard;
-    private DrawableComponent drawableComponent;
-
-    public DragListener(UmlBoard umlBoard, DrawableComponent drawableComponent) {
-        this.umlBoard = umlBoard;
-        this.drawableComponent = drawableComponent;
+    public DragListener() {
     }
 
     @Override
@@ -42,7 +37,6 @@ public class DragListener implements DragSourceListener {
 
     @Override
     public void dragDropEnd(DragSourceDropEvent dragSourceDropEvent) {
-        drawableComponent.setPosition((int) dragSourceDropEvent.getLocation().getX(), (int) dragSourceDropEvent.getLocation().getX());
-        drawableComponent.drawFigureOnBoard(umlBoard);
+
     }
 }

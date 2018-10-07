@@ -28,7 +28,7 @@ public class MenuItemUMLComponent extends JPanel implements DragGestureListener 
 
     @Override
     public void dragGestureRecognized(DragGestureEvent dragGestureEvent) {
-        Transferable transferable = new StringSelection(null);
-        dragSource.startDrag(dragGestureEvent, DragSource.DefaultCopyDrop, transferable, new DragListener(umlBoard, drawableComponent));
+        Transferable transferable = new TransferableEntity(drawableComponent);
+        dragSource.startDrag(dragGestureEvent, DragSource.DefaultCopyDrop, transferable, new DragListener());
     }
 }
