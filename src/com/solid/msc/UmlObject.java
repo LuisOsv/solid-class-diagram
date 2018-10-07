@@ -6,7 +6,7 @@ import java.awt.geom.Line2D;
 import java.util.ArrayList;
 
 
-public abstract class UmlObject implements DrawableObject {
+public abstract class UmlObject implements DrawableComponent {
     private ArrayList<Relation> relationShips;
     private String name;
     private SquareFigure figure;
@@ -23,7 +23,7 @@ public abstract class UmlObject implements DrawableObject {
     }
 
     @Override
-    public void addRelation(DrawableObject relatedDrawableObject, RelationshipType relationshipType) {
+    public void addRelation(DrawableComponent relatedDrawableObject, RelationshipType relationshipType) {
         Relation relation = new Relation(relatedDrawableObject, relationshipType);
         relationShips.add(relation);
     }
@@ -42,6 +42,10 @@ public abstract class UmlObject implements DrawableObject {
     @Override
     public JPanel getFigure() {
         return this.figure;
+    }
+
+    public JTextField getTextField() {
+        return figure.getTextField();
     }
 
     @Override

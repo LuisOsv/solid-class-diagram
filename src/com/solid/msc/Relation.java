@@ -1,15 +1,15 @@
 package com.solid.msc;
 
 public class Relation {
-    private DrawableObject targetDrawableObject;
+    private DrawableComponent targetDrawableObject;
     private RelationshipType relationshipType;
 
-    public Relation(DrawableObject targetDrawableObject, RelationshipType relationshipType) {
+    public Relation(DrawableComponent targetDrawableObject, RelationshipType relationshipType) {
         this.targetDrawableObject = targetDrawableObject;
         this.relationshipType = relationshipType;
     }
 
-    public DrawableObject getTargetDrawableObject() {
+    public DrawableComponent getTargetDrawableObject() {
         return targetDrawableObject;
     }
 

@@ -6,11 +6,11 @@ import java.awt.dnd.DropTarget;
 import java.util.ArrayList;
 
 public class UmlBoard extends JPanel {
-    private ArrayList<DrawableObject> drawableObjects;
+    private ArrayList<DrawableComponent> drawableObjects;
 
     public UmlBoard() {
         this.setLayout(null);
-        drawableObjects = new ArrayList<DrawableObject>();
+        drawableObjects = new ArrayList<DrawableComponent>();
         MouseEventsListener panelMover = new MouseEventsListener(this);
         this.addMouseListener(panelMover);
         this.addMouseMotionListener(panelMover);
@@ -22,14 +22,14 @@ public class UmlBoard extends JPanel {
         Graphics2D graphics2D = (Graphics2D) graphics;
         graphics2D.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-        for (DrawableObject drawableObject : drawableObjects) {
+        for (DrawableComponent drawableObject : drawableObjects) {
             drawRelations(graphics2D, drawableObject);
         }
 
         drawNewRelation(graphics2D);
     }
 
-    public ArrayList<DrawableObject> getDrawableObjects() {
+    public ArrayList<DrawableComponent> getDrawableObjects() {
         return drawableObjects;
     }
 
@@ -39,12 +39,12 @@ public class UmlBoard extends JPanel {
         }
     }
 
-    public void addUmlObject(DrawableObject drawableObject) {
+    public void addUmlObject(DrawableComponent drawableObject) {
         this.drawableObjects.add(drawableObject);
         this.add(drawableObject.getFigure());
     }
 
-    public void drawRelations(Graphics2D graphics2D, DrawableObject umlObject) {
+    public void drawRelations(Graphics2D graphics2D, DrawableComponent umlObject) {
         if (umlObject.getRelationShips().size() > 0) {
             Point point1 = umlObject.getCenter();
             for (int j = 0; j < umlObject.getRelationShips().size(); j++) {

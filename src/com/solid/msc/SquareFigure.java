@@ -15,4 +15,8 @@ public class SquareFigure extends JPanel {
     public void setEntityName(String name) {
         this.name.setText(name);
     }
+
+    public JTextField getTextField() {
+        return name;
+    }
 }

@@ -4,11 +4,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
-public interface DrawableObject {
+public interface DrawableComponent {
 
     void drawRelation(Graphics2D graphics2D, Point point1, Point point2, RelationshipType relationshipType);
 
-    void addRelation(DrawableObject relatedDrawableObject, RelationshipType relationshipType);
+    void addRelation(DrawableComponent relatedDrawableObject, RelationshipType relationshipType);
 
     ArrayList<Relation> getRelationShips();
 
@@ -17,6 +17,8 @@ public interface DrawableObject {
     void setName(String name);
 
     JPanel getFigure();
+
+    JTextField getTextField();
 
 
     void drawNewRelation(Graphics2D graphics2D, RelationshipType relationshipType);
