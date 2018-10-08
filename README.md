@@ -9,3 +9,6 @@ Einar Rocha Cayu
 
 # Running Program
 ![alt text](https://github.com/rochaeinar/solid-class-diagram/blob/master/screenshot.png)
+# Class Diagram
+![alt text](https://github.com/rochaeinar/solid-class-diagram/blob/master/class_diagram_msc.jpg)
+
