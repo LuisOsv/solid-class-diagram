@@ -5,3 +5,7 @@ Osmar Garcia Navarro
 Mauricio Giovanny Viscarra Rivera
 Luis Osvaldo Serna Gomez
 Einar Rocha Cayu
+
+
+# Running Program
+![alt text](https://github.com/rochaeinar/solid-class-diagram/blob/master/screenshot.png)
