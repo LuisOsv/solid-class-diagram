@@ -1,10 +1,10 @@
 # solid-class-diagram
 Principios de diseño y desarrollo de software - SOLID class diagram
-Group: The Waking Bugs
-Osmar Garcia Navarro
-Mauricio Giovanny Viscarra Rivera
-Luis Osvaldo Serna Gomez
-Einar Rocha Cayu
+# Group: The Waking Bugs
+Osmar Garcia Navarro <br />
+Mauricio Giovanny Viscarra Rivera <br />
+Luis Osvaldo Serna Gomez <br />
+Einar Rocha Cayu <br />
 
 
 # Running Program
