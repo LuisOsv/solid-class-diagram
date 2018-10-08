@@ -19,8 +19,8 @@ public class EntityMenuBuilder extends JPanel {
     }
 
     private void addEntities() {
-        this.add(new EntityMenuItem("Class", Color.DARK_GRAY, umlBoard, UmlClass.class));
-        this.add(new EntityMenuItem("<<Interface>>", Color.lightGray, umlBoard, UmlInterface.class));
+        this.add(new EntityMenuItem("Class", Color.DARK_GRAY, UmlClass.class));
+        this.add(new EntityMenuItem("<<Interface>>", Color.lightGray, UmlInterface.class));
     }
 
     private void initializePanel() {

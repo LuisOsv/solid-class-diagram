@@ -4,4 +4,4 @@ Group: The Waking Bugs
 Osmar Garcia Navarro
 Mauricio Giovanny Viscarra Rivera
 Luis Osvaldo Serna Gomez
-Eynar Rocha Cayu
+Einar Rocha Cayu

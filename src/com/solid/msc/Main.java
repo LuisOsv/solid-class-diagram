@@ -17,13 +17,13 @@ public class Main extends JFrame {
         this.getContentPane().setLayout(new BorderLayout());
 
         UmlBoard umlBoard = new UmlBoard();
-        UmlObject object1 = new UmlClass();
-        object1.setPosition(50, 50);
-        UmlObject object2 = new UmlClass();
-        object2.setPosition(100, 100);
+        UmlObject umlObject1 = new UmlClass();
+        umlObject1.setPosition(50, 50);
+        UmlObject umlObject2 = new UmlClass();
+        umlObject2.setPosition(100, 200);
 
-        umlBoard.addUmlObject(object1);
-        umlBoard.addUmlObject(object2);
+        umlBoard.addUmlObject(umlObject1);
+        umlBoard.addUmlObject(umlObject2);
 
         JPanel menus = new JPanel();
         BoxLayout layout1 = new BoxLayout(menus, BoxLayout.Y_AXIS);

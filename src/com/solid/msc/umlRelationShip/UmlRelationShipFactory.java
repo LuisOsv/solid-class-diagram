@@ -14,12 +14,12 @@ public class UmlRelationShipFactory {
         switch (relationshipType) {
             case DEPENDENCY: {
                 umlRelationshipDrawer =
-                        new DependencyRelationShip(graphics2D, originPoint, targetPoint, Color.BLACK, Color.BLACK, Color.WHITE);
+                        new DependencyRelationShip(graphics2D, originPoint, targetPoint);
                 break;
             }
             case ASSOCIATION: {
                 umlRelationshipDrawer =
-                        new AssociationRelationShip(graphics2D, originPoint, targetPoint, Color.BLACK, Color.BLACK, Color.WHITE);
+                        new AssociationRelationShip(graphics2D, originPoint, targetPoint);
             }
         }
 

@@ -2,7 +2,6 @@ package com.solid.msc.UmlEntities;
 
 import com.solid.msc.RelationHelper;
 import com.solid.msc.RelationshipType;
-import com.solid.msc.UmlRelation;
 import com.solid.msc.umlRelationShip.UmlRelationShipFactory;
 import com.solid.msc.umlRelationShip.UmlRelationshipDrawer;
 
@@ -13,7 +12,6 @@ import java.util.ArrayList;
 
 public abstract class UmlObject implements UmlComponent {
     private ArrayList<UmlRelation> umlRelationShips;
-    private String name;
     private SquareFigure figure;
 
     public UmlObject() {
@@ -36,17 +34,6 @@ public abstract class UmlObject implements UmlComponent {
     public void addRelation(UmlComponent relatedDrawableObject, RelationshipType relationshipType) {
         UmlRelation umlRelation = new UmlRelation(relatedDrawableObject, relationshipType);
         umlRelationShips.add(umlRelation);
-    }
-
-    @Override
-    public String getName() {
-        return this.name;
-    }
-
-    @Override
-    public void setName(String name) {
-        this.name = name;
-        this.figure.setName(name);
     }
 
     @Override

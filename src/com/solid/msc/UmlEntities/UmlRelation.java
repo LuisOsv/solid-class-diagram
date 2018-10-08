@@ -1,6 +1,6 @@
-package com.solid.msc;
+package com.solid.msc.UmlEntities;
 
-import com.solid.msc.UmlEntities.UmlComponent;
+import com.solid.msc.RelationshipType;
 
 public class UmlRelation {
     private UmlComponent targetDrawableObject;

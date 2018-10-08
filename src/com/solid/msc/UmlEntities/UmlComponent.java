@@ -1,6 +1,5 @@
 package com.solid.msc.UmlEntities;
 
-import com.solid.msc.UmlRelation;
 import com.solid.msc.RelationshipType;
 import com.solid.msc.UmlBoard;
 
@@ -18,12 +17,9 @@ public interface UmlComponent {
 
     String getName();
 
-    void setName(String name);
-
     JPanel getFigure();
 
     JTextField getTextField();
-
 
     void drawNewRelation(Graphics2D graphics2D, RelationshipType relationshipType);
 
